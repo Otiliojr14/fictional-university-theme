@@ -17,7 +17,7 @@
           <?php
             $today = date('Ymd');
             $homepageEvents = new WP_Query(array(
-              'posts_per_page' => -1,
+              'posts_per_page' => 2,
               'post_type' => 'event',
               'meta_key' => 'event_date',
               'orderby' => 'meta_value_num',
@@ -36,7 +36,7 @@
               $homepageEvents->the_post(); ?>
               <div class="event-summary">
                 <a class="event-summary__date t-center" href="#">
-                  <span class="event-summary__month"><?php 
+                  <span class="event-summary__month"><?php
 
                     $eventDate = new DateTime(get_field('event_date'));
                     echo $eventDate->format('M');
@@ -53,7 +53,7 @@
                   }?> <a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a></p>
                 </div>
               </div>
-          
+
             <?php } ?>
 
           <p class="t-center no-margin"><a href="<?php echo get_post_type_archive_link('event'); ?>" class="btn btn--blue">View All Events</a></p>
@@ -62,7 +62,7 @@
       <div class="full-width-split__two">
         <div class="full-width-split__inner">
           <h2 class="headline headline--small-plus t-center">From Our Blogs</h2>
-          <?php 
+          <?php
             $homepagePosts = new WP_Query(array(
               'posts_per_page' => 2
             ));
@@ -84,8 +84,8 @@
                 </div>
               </div>
             <?php } wp_reset_postdata() ?>
-          
-          
+
+
 
           <p class="t-center no-margin"><a href="<?php echo site_url('/blog'); ?>" class="btn btn--yellow">View All Blog Posts</a></p>
         </div>
